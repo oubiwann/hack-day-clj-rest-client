@@ -1,6 +1,12 @@
-(ns rest-client.core)
+(ns rest-client.core
+  (:require [rest-server.const :as const]
+            [clj-http.client :as http]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn get-orders
+  "Get a list of all orders."
+  ([]
+    (get-orders (str const/base-url "/orders")))
+  ([url]
+    (http/get url)))
+
+(defn -main [& args])
