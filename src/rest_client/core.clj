@@ -7,6 +7,6 @@
   ([]
     (get-orders (str const/base-url "/orders")))
   ([url]
-    (http/get url)))
+    ((http/get url) :body)))
 
 (defn -main [& args])
