@@ -9,4 +9,9 @@
   ([base-url]
     ((http/get (str base-url "/orders")) :body)))
 
+(defn get-order
+  "Get a single order by ID"
+  ([id]
+   ((http/get (str const/base-url "/order/" id)) :body)))
+
 (defn -main [& args])
