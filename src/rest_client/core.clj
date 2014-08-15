@@ -13,7 +13,7 @@
   "Get a single order by ID"
   ([id]
    (get-order const/base-url id))
-  ([url id]
-   ((http/get (str url "/order/" id)) :body)))
+  ([base-url id]
+   ((http/get (str base-url "/order/" id)) :body)))
 
 (defn -main [& args])
