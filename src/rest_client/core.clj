@@ -5,8 +5,8 @@
 (defn get-orders
   "Get a list of all orders."
   ([]
-    (get-orders (str const/base-url "/orders")))
-  ([url]
-    ((http/get url) :body)))
+    (get-orders const/base-url))
+  ([base-url]
+    ((http/get (str base-url "/orders")) :body)))
 
 (defn -main [& args])
