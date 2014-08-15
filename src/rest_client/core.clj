@@ -16,4 +16,18 @@
   ([base-url id]
    ((http/get (str base-url "/order/" id)) :body)))
 
+(defn get-payment
+  "Get payment status by ID"
+  ([id]
+   (get-payment const/base-url id))
+  ([url id]
+   ((http/get (str url "/payment/order/" id)) :body)))
+
+(defn put-payment
+  "Make payment by ID"
+  ([id]
+   (put-payment const/base-url id))
+  ([url id]
+   ((http/put (str url "/payment/order/" id)) :body)))
+
 (defn -main [& args])
