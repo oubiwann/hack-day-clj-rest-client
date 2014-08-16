@@ -57,18 +57,34 @@
   ([base-url id]
    ((http/get (str base-url "/order/" id)) :body)))
 
+(defn create-order
+  "Create a new order. TODO: json-ify the order"
+  ([order]
+    (create-order const/base-url order-content))
+  ([base-url order]
+   ((http/post (str base-url "/order")
+               {:body (str order)
+                :content-type :json}))))
+
+(defn delete-order
+  "Delete a completed order."
+  ([order-id]
+   (delete-order const/base-url order-id))
+  ([base-url order-id]
+   ((http/delete (str base-url "/order/" order-id)))))
+
 (defn get-payment-order
   "Get payment status by ID."
   ([id]
    (get-payment-order const/base-url id))
-  ([url id]
-   ((http/get (str url "/payment/order/" id)) :body)))
+  ([base-url id]
+   ((http/get (str base-url "/payment/order/" id)) :body)))
 
 (defn put-payment-order
   "Make payment by ID"
   ([id]
    (put-payment-order const/base-url id))
-  ([url id]
-   ((http/put (str url "/payment/order/" id)) :body)))
+  ([base-url id]
+   ((http/put (str base-url "/payment/order/" id)) :body)))
 
 (defn -main [& args])
